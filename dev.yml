@@ -1,0 +1,17 @@
+name: multipass-demo
+
+type: node
+
+up:
+  - node:
+      version: v8.9.4
+      yarn: true
+      packages:
+        - .
+        # - path/to/other/package
+
+commands:
+  # console:
+  # server:
+  # build:
+  test: yarn test
