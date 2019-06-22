@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const router = express.Router();
-const port = parseInt(process.env.PORT, 10) || 1337
+const port = parseInt(process.env.PORT, 10) || 3000
 
 router.get('/',function(req,res){
   res.send('<p>some html</p>')
@@ -21,4 +21,4 @@ router.get('/sitemap',function(req,res){
 app.use('/', router);
 app.listen(port);
 
-console.log('Running at Port 8080');
+console.log('Running at Port 3000');
