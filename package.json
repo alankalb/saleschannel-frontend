@@ -2,7 +2,7 @@
   "name": "multipass-demo",
   "version": "1.0.0",
   "description": "demonstration of multipass API with multipassify",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
