@@ -1,17 +1,32 @@
-window.addEventListener('load', function() {
-  document.getElementById('test').addEventListener("click", myFunction)
-})
+/*window.addEventListener('load', function() {
+  
+})*/
+document.addEventListener("click", clickFilter);
+/*
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains( 'product' )){
+    getMultipass();
+  }
+}, false);
+*/
 
-function myFunction() {
+function clickFilter() {
+  if (event.target.dataset.product){
+    getMultipass(event.target.dataset.product);
+  }
+}
+
+function getMultipass(product) {
   var xhttp = new XMLHttpRequest();
   var query = "test=123"
   var url = "/?" + query;
-  var params = JSON.stringify({ "id": "54321"}) 
+  var params = JSON.stringify({ "product": product}) 
+  console.log(params)
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      resJSON = JSON.parse(this.responseText);
-      window.open(resJSON.url, '_blank');
-      console.log(resJSON)
+      res = JSON.parse(this.responseText);
+      //window.open(res.url, '_blank');
+      console.log(res)
     }
   };
   xhttp.open("POST", url, true);
