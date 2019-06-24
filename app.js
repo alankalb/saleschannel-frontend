@@ -15,14 +15,15 @@ router.get('/javascript/frontend.js',function(req,res){
 
 router.post('/',function(req,res){
   if (req.body.id){
-    let customers = require('./customers/customers.json');
-    let id = req.body.id;
-    let user = customers.customers.filter(customer => customer.id == id)[0]
+    let customers = require('./data/customers.json');
+    let user = customers.customers.filter(customer => customer.id == req.body.id)[0]
+
+    let products = require('./data/products.json');
+    let product = products.products.filter(product => product.id == req.body.product)[0]
+    
     res.json({
-      url: 'http://alankalb.myshopify.com', 
-      query: req.query.test, 
-      product: req.body.product,
-      customer : user
+      url: product.url, 
+      address : user.default_address
     });
   }else{
     res.status(400).send('No Customer Login')

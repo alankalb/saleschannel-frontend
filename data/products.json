@@ -1,0 +1,16 @@
+{
+  "products":[
+    {
+      "id": "product1",
+      "url": "https://alankalb.myshopify.com"
+    },
+    {
+      "id": "product2",
+      "url": "https://google.com"
+    },
+    {
+      "id": "product3",
+      "url": "https://shopify.com"
+    }
+  ]
+}
