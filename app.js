@@ -13,7 +13,11 @@ router.get('/javascript/frontend.js',function(req,res){
 });
 
 router.post('/',function(req,res){
-  res.json({url: 'http://alankalb.myshopify.com', query: req.query.test, product: req.body.product});
+  res.json({
+    url: 'http://alankalb.myshopify.com', 
+    query: req.query.test, 
+    product: req.body.product
+  });
 });
 
 app.use(express.json())
