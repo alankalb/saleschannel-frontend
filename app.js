@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const router = express.Router();
+
 const port = parseInt(process.env.PORT, 10) || 3000
 
 router.get('/',function(req,res){
@@ -13,11 +14,20 @@ router.get('/javascript/frontend.js',function(req,res){
 });
 
 router.post('/',function(req,res){
-  res.json({
-    url: 'http://alankalb.myshopify.com', 
-    query: req.query.test, 
-    product: req.body.product
-  });
+  if (req.body.id){
+    let customers = require('./customers/customers.json');
+    let id = req.body.id;
+    let user = customers.customers.filter(customer => customer.id == id)[0]
+    res.json({
+      url: 'http://alankalb.myshopify.com', 
+      query: req.query.test, 
+      product: req.body.product,
+      customer : user
+    });
+  }else{
+    res.status(400).send('No Customer Login')
+  }
+
 });
 
 app.use(express.json())
