@@ -1,3 +1,19 @@
+// Populate customer selector
+function getCustomer() {
+  var url = "/users"
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      res = JSON.parse(this.responseText);
+      console.log(res);
+    }
+  };
+  xhttp.open("GET", url);
+  xhttp.send();
+}
+
+
+// Click event handlers
 document.addEventListener("click", clickFilter);
 
 function clickFilter() {
