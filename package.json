@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/alankalb/multipass-demo#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "multipassify": "^1.1.0"
   }
 }

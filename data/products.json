@@ -1,0 +1,17 @@
+{
+  "products":[
+    {
+      "id": "product1",
+      "url": "https://music-channel-demo.myshopify.com/products/ovo-stencil-owl-t-shirt"
+    },
+    {
+      "id": "product2",
+      "url": "https://music-channel-demo.myshopify.com/products/ovo-runner-heavyweight-jersey-hoodie"
+
+    },
+    {
+      "id": "product3",
+      "url": "https://music-channel-demo.myshopify.com/products/ovo-essentials-cap"
+    }
+  ]
+}
