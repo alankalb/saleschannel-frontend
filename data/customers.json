@@ -4,6 +4,7 @@
       "id": 12345,
       "first_name": "Test",
       "last_name": "Testerson",
+      "email": "fakeemail@email.com",
       "default_address": {
         "first_name": "Test",
         "last_name": "Testerson",

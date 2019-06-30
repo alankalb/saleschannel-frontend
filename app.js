@@ -3,9 +3,9 @@ const app = express();
 const path = require('path');
 const router = express.Router();
 const dotenv = require('dotenv');
-var Multipassify = require('multipassify');
+const multipass = require("./multipass.js")
 
-dotenv.config();
+//dotenv.config();
 
 const port = parseInt(process.env.PORT, 10) || 3000
 
@@ -24,9 +24,9 @@ router.post('/',function(req,res){
 
     let products = require('./data/products.json');
     let product = products.products.filter(product => product.id == req.body.product)[0]
-    console.log(process.env.multipass_secret);
+    let url = multipass.url(user.email, user.first_name, user.last_name, user.default_address, product.url);
     res.json({
-      url: product.url, 
+      url: url, 
       address : user.default_address
     });
   }else{

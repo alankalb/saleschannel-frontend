@@ -20,8 +20,7 @@ function getMultipass(product) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       res = JSON.parse(this.responseText);
-      //window.open(res.url, '_blank');
-      console.log(res)
+      window.open(res.url, '_blank');
     }
   };
   xhttp.open("POST", url, true);
