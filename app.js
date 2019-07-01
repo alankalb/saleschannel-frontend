@@ -13,6 +13,11 @@ router.get('/',function(req,res){
   res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
+router.get('/users',function(req,res){
+  let customers = require('./data/customers.json');
+  res.json(customers)
+});
+
 router.get('/javascript/frontend.js',function(req,res){
   res.sendFile(path.join(__dirname + '/javascript/frontend.js'));
 });
