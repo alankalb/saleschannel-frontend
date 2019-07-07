@@ -1,29 +1,20 @@
 // Populate customer selector
-document.onload = getCustomer();
+document.onload = getProducts();
 
-function getCustomer() {
-  var url = "/users"
+function getProducts() {
+  var url = "/products/music-channel-demo.myshopify.com"
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       res = JSON.parse(this.responseText);
-      customerSelector(res.customers);
+      console.log(res)
     }
   };
   xhttp.open("GET", url);
   xhttp.send();
 }
 
-function customerSelector(customers) {
-  var select = document.getElementById('user_select');
-  customers.forEach(customer => {
-    var opt = document.createElement('option');
-    opt.appendChild( document.createTextNode('Name: ' +customer.first_name+' '+customer.last_name+' ID: '+customer.id) );
-    opt.value = customer.id; 
-    select.appendChild(opt); 
-  });
 
-}
 
 
 // Click event handlers
