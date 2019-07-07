@@ -1,2 +1,2 @@
-# multipass-demo
-demonstration of multipass API with multipassify
+# Sales Channel Frontend
+Demonstration of a front end application interacting with a Shopify Sales Channel
