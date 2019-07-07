@@ -20,7 +20,6 @@ async function setProducts(products){
   var productTitle = document.getElementsByClassName('product-title');
   var productButton = document.getElementsByClassName('product-btn');
   var hidden = document.getElementsByClassName('product');
-  console.log(hidden[1])
   products.product_listings.forEach(function(product,index) {
     productImage[index].src= product.images[0].src;
     productTitle[index].innerHTML = product.title;
@@ -30,30 +29,28 @@ async function setProducts(products){
   
 }
 
-
-
-
 // Click event handlers
 document.addEventListener("click", clickFilter);
 
 function clickFilter() {
   if (event.target.dataset.variant){
-    getCheckout(variant);
+    getCheckout(event.target.dataset.variant);
   }
 }
 
 function getCheckout(variant) {
   var url = "/checkout";
   var paramsJSON = {
-    "variant" : product
+    "variant" : variant,
+    "shop" : "music-channel-demo.myshopify.com"
   }
   var params = JSON.stringify(paramsJSON) 
   
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      res = JSON.parse(this.responseText);
-      //window.open(res.url, '_blank');
+      console.log(this.responseText);
+      window.open(this.responseText, '_blank');
     }
   };
   xhttp.open("POST", url, true);
