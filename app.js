@@ -31,8 +31,17 @@ router.get('/javascript/frontend.js',function(req,res){
   res.sendFile(path.join(__dirname + '/javascript/frontend.js'));
 });
 
-router.post('/',function(req,res){
-  res.status(200)
+router.post('/checkout',function(req,res){
+  
+  var accessToken = db.getToken(req.body.shop);
+  accessToken.then(function(token){
+    var checkout = requests.getCheckout(req.body.shop, token, req.body.variant);
+    checkout.then(function(response){
+      res.send(response)
+    })
+
+  });
+  
 });
 
 app.use(express.json())
