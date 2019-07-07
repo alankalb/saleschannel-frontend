@@ -38,17 +38,14 @@ document.addEventListener("click", clickFilter);
 
 function clickFilter() {
   if (event.target.dataset.variant){
-    
+    getCheckout(variant);
   }
 }
 
-function getMultipass(product) {
-  var url = "/";
-  var select = document.getElementById("user_select");
-  var id = select.options[select.selectedIndex].value;
+function getCheckout(variant) {
+  var url = "/checkout";
   var paramsJSON = {
-    "product" : product,
-    "id" : id
+    "variant" : product
   }
   var params = JSON.stringify(paramsJSON) 
   
@@ -56,7 +53,7 @@ function getMultipass(product) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       res = JSON.parse(this.responseText);
-      window.open(res.url, '_blank');
+      //window.open(res.url, '_blank');
     }
   };
   xhttp.open("POST", url, true);
