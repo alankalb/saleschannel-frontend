@@ -2,7 +2,6 @@ const https = require("https");
 
 function product_listings(shop, token){
   return new Promise(function(resolve,reject){
-    console.log(token)
     const options ={
       hostname: shop,
       path: '/admin/api/2019-04/product_listings.json', 
